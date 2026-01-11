@@ -31,7 +31,7 @@ export default function SecurityDashboard({ data }: Props) {
           <div className="flex flex-col md:flex-row md:items-center mb-2">
             <div className="border py-1 rounded mx-1 hover:bg-slate-100">
             <img 
-              src="/Github-Symbol.png" 
+              src="/githubsymbol.png" 
               alt="GitHub" 
               className="dark:invert brightness-0" 
               width={42} // Adjusted for better mobile scale
