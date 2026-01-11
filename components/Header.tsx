@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { ModeToggle } from "./touggle-theme";
+import Image from "next/image";
 
 export default function Header() {
   const router = useRouter();
@@ -35,13 +36,13 @@ export default function Header() {
         {/* Right Side: Action Button & Toggle */}
         <div className="flex flex-col sm:flex-row items-center gap-3 md:gap-4">
           <button className="flex items-center gap-2 bg-[#008f7a] hover:bg-[#007a68] text-white px-3 md:px-4 py-2 rounded transition-all text-sm md:text-md font-semibold shadow-sm whitespace-nowrap">
-            <img
-               
-              src="Github-Symbol.png" 
-              alt="GitHub" 
-              className="invert brightness-0" 
-              width={25} 
-            />
+            <Image 
+                src="/Github-Symbol.png" 
+                alt="GitHub" 
+                className="invert brightness-0" 
+                width={25} 
+                height={25} 
+                />
             <span className="text-md">Install GitHub App</span>
           </button>
           <ModeToggle />
