@@ -29,7 +29,7 @@ export default function SecurityDashboard({ data }: Props) {
         {/* Header Metadata Section */}
         <header className="p-4 md:p-8 pb-4 dark:bg-slate-900">
           <div className="flex flex-col md:flex-row md:items-center mb-2">
-            <div className="border py-1 rounded mx-1 hover:bg-slate-100">
+            <div className="border py-1 rounded mx-1">
             <img 
               src="/githubsymbol.png" 
               alt="GitHub" 
