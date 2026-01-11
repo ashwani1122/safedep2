@@ -20,7 +20,7 @@ export default function Header() {
             POWERED BY
           </span>
           <div className="flex items-center gap-2">
-            <div className="relative w-9 sm:w-10 md:w-12 rounded overflow-hidden">
+            <div className="relative sm:w-6 md:w-8 rounded overflow-hidden">
               <img
                 src="/115209633.png"
                 alt="SafeDep Logo"
