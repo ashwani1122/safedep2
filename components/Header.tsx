@@ -37,7 +37,7 @@ export default function Header() {
         <div className="flex flex-col sm:flex-row items-center gap-3 md:gap-4">
           <button className="flex items-center gap-2 bg-[#008f7a] hover:bg-[#007a68] text-white px-3 md:px-4 py-2 rounded transition-all text-sm md:text-md font-semibold shadow-sm whitespace-nowrap">
             <Image 
-                src="/github-symbol.png" 
+                src="/githubsymbol.png" 
                 alt="GitHub" 
                 className="invert brightness-0" 
                 width={25} 
