@@ -49,18 +49,11 @@ export default function LandingPage() {
   ];
 
   return (
-    // Updated background and text colors to be theme-aware
     <div className="relative min-h-screen bg-slate-50 dark:bg-[#050505] text-slate-900 dark:text-slate-200 selection:bg-emerald-500/30 overflow-hidden transition-colors duration-500">
-      
-      {/* 1. Subtle Grid Background - Opacity adjusted for light/dark */}
       <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-50 dark:opacity-100" />
-
-      {/* 2. Ambient Glow - Emerald tint for both modes */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 -z-10 w-full max-w-4xl h-[500px] bg-emerald-500/5 dark:bg-emerald-500/10 blur-[120px] rounded-full" />
 
       <main className="relative z-10 max-w-6xl mx-auto px-6 pt-32 pb-20 flex flex-col items-center">
-        
-        {/* Badge */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -70,8 +63,6 @@ export default function LandingPage() {
           <ShieldCheck size={14} className="group-hover:scale-110 transition-transform" />
           <span>v2.0: AI-Powered Supply Chain Security</span>
         </motion.div>
-        
-        {/* Hero Text */}
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -83,7 +74,6 @@ export default function LandingPage() {
             at the source.
           </span>
         </motion.h1>
-        
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -93,19 +83,14 @@ export default function LandingPage() {
           Instant deep-scan of packages for vulnerabilities and malicious intent. 
           The engineering standard for modern dependency management.
         </motion.p>
-
-        {/* Input Terminal */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
           className="w-full max-w-5xl"
         >
-          {/* Border Gradient Container */}
           <div className="relative group p-[1px] rounded-2xl bg-slate-200 dark:bg-gradient-to-b dark:from-slate-700 dark:to-transparent focus-within:ring-2 ring-emerald-500/50 transition-all duration-500 shadow-lg">
             <div className="bg-white dark:bg-[#0c0c0c] rounded-[15px] p-3 md:p-4 flex flex-col md:flex-row items-stretch gap-3">
-              
-              {/* Ecosystem Selector */}
               <div className="flex-none md:w-48">
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
@@ -135,8 +120,6 @@ export default function LandingPage() {
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
-
-              {/* Package Name Input */}
               <div className="flex-grow relative group/input">
                 <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500 group-focus-within/input:text-emerald-500 transition-colors">
                   <Package size={20} />
@@ -150,8 +133,6 @@ export default function LandingPage() {
                   className="w-full h-14 pl-12 pr-4 bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/5 rounded-xl outline-none focus:bg-white dark:focus:bg-white/[0.08] transition-all placeholder:text-slate-400 dark:placeholder:text-slate-600 font-medium text-slate-900 dark:text-white"
                 />
               </div>
-
-              {/* Version Input */}
               <div className="md:w-40 relative group/input">
                 <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500 group-focus-within/input:text-emerald-500 transition-colors">
                   <Zap size={20} />
@@ -165,8 +146,6 @@ export default function LandingPage() {
                   className="w-full h-14 pl-12 pr-4 bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/5 rounded-xl outline-none focus:bg-white dark:focus:bg-white/[0.08] transition-all placeholder:text-slate-400 dark:placeholder:text-slate-600 font-medium text-slate-900 dark:text-white"
                 />
               </div>
-
-              {/* Action Button */}
               <Button 
                 onClick={handleRoute}
                 disabled={isLoading}
@@ -184,8 +163,6 @@ export default function LandingPage() {
             </div>
           </div>
         </motion.div>
-
-        {/* Popular Tags */}
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -207,8 +184,6 @@ export default function LandingPage() {
           ))}
         </motion.div>
       </main>
-
-      {/* Modern Footer Detail */}
       <footer className="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-400 dark:text-slate-600 text-[10px] tracking-widest uppercase flex items-center gap-4">
         <span>Cloud Native</span>
         <div className="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-800" />
