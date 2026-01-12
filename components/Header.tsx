@@ -8,8 +8,16 @@ export default function Header() {
   const router = useRouter();
 
   return (
-    <header className="w-full text-slate-900 dark:bg-black dark:text-white bg-slate-50 border-b border-slate-100 pt-6 md:pt-10 transition-colors">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center p-4 gap-4 md:gap-0">
+<header className="sticky top-0 z-50 w-full transition-all duration-300
+                   /* Background & Glassmorphism */
+                   bg-slate-50/80 dark:bg-black/80 backdrop-blur-md 
+                   /* Border for separation */
+                   border-b border-slate-200/60 dark:border-white/10
+                   /* Text Colors */
+                   text-slate-900 dark:text-white 
+                   /* Spacing */
+                   ">      
+                   <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center p-4 gap-4 md:gap-0">
         
         {/* Left Side: Logo Branding - Now Clickable */}
         <div 
