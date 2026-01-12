@@ -96,9 +96,9 @@ export default function SecurityDashboard({ data }: Props) {
                   >
                     <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight text-left">Summary</h3>
                     <div className="space-y-4 text-[15px] md:text-[16px] leading-relaxed text-slate-600 dark:text-slate-400 text-left font-medium">
-                      <p>This analysis was performed using <span className="text-slate-900 dark:text-slate-100 font-bold italic">vet</span> and SafeDep Cloud Malicious Package Analysis.</p>
+                      <p>This analysis was performed using <span className="text-slate-900 dark:text-slate-100 font-bold ">vet</span> and SafeDep Cloud Malicious Package Analysis.</p>
                       <p className="flex items-center gap-2"><span className="uppercase text-[10px] font-black bg-slate-900 text-white dark:bg-white dark:text-black px-1.5 py-0.5 rounded tracking-tighter">Note</span> This report is updated by a verification record</p>
-                      <p className="text-red-600 dark:text-red-400 font-semibold italic">Multiple files flagged for potential data exfiltration, XSS, and RCE vulnerabilities.</p>
+                      <p className="text-red-600 dark:text-red-400 font-semibold ">Multiple files flagged for potential data exfiltration, XSS, and RCE vulnerabilities.</p>
                     </div>
                   </div>
                   {/* Verification Record Section */}
@@ -242,7 +242,7 @@ export default function SecurityDashboard({ data }: Props) {
                       })
                     ) : (
                       <tr>
-                        <td colSpan={3} className="px-10 py-16 text-center text-slate-400 italic font-medium">No detailed license information found.</td>
+                        <td colSpan={3} className="px-10 py-16 text-center text-slate-400  font-medium">No detailed license information found.</td>
                       </tr>
                     )}
                   </tbody>
