@@ -26,9 +26,7 @@ export default function SecurityDashboard({ data }: Props) {
   }, []);
   return (
     <div className="min-h-screen text-slate-900 bg-slate-50 p-4 md:p-8 font-sans dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300">
-      <div className="max-w-6xl mx-auto bg-white rounded-xl border border-slate-200 overflow-hidden dark:bg-slate-900 dark:border-slate-800 shadow-sm">
-        
-        {/* Header Metadata Section */}
+      <div className="max-w-6xl mx-auto bg-white rounded border border-slate-200 overflow-hidden dark:bg-slate-900 dark:border-slate-800">
         <header className="p-4 md:p-10 pb-6 dark:bg-slate-900">
           <div className="flex flex-col md:flex-row md:items-center mb-4 gap-3">
             <div className="border border-slate-200 dark:border-slate-700 py-1 rounded-lg bg-slate-50 dark:bg-slate-800 shadow-sm">
@@ -43,12 +41,10 @@ export default function SecurityDashboard({ data }: Props) {
               {pkg?.name}<span className="text-slate-400 font-medium ml-1">@{version}</span>
             </h1>
           </div>
-          
           <div className="space-y-1.5 text-[12px] md:text-[13px] text-slate-500 dark:text-slate-400 mb-8 leading-relaxed">
         <p>
               Analysed at{" "}
               <span className="text-slate-800 dark:text-slate-200">
-                {/* 3. Only show the date after mounting to avoid mismatch */}
                 {mounted ? new Date().toUTCString() : "Loading..."}
               </span>
             </p>            <p className="tracking-tight">Source <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center gap-1 break-all font-medium">
@@ -57,8 +53,6 @@ export default function SecurityDashboard({ data }: Props) {
             <p className="font-mono text-[11px] uppercase tracking-wider text-slate-400 pt-1">SHA256 <span className="text-slate-700 dark:text-slate-300 break-all font-sans normal-case tracking-normal ml-1 font-medium">{data?.insight?.sha || "5188d186e94a8d5470af6ed2725d209d8b2abc29cc7d6bedd58a748efd7e89f9"}</span></p>
             <p className="font-mono text-[11px] uppercase tracking-wider text-slate-400">Confidence <span className="text-slate-700 dark:text-slate-300 break-all font-sans normal-case tracking-normal ml-1 font-medium">High (SafeDep Verified)</span></p>
           </div>
-
-          {/* Stat Cards Grid - Responsive columns */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
             <StatCard label="Version" value={version} icon={<Info className="text-blue-500" size={18}/>} />
             <StatCard label="Vulnerabilities" value={vulnerabilities.length} icon={<ShieldAlert className="text-red-500" size={18}/>} />
@@ -107,7 +101,6 @@ export default function SecurityDashboard({ data }: Props) {
                       <p className="text-red-600 dark:text-red-400 font-semibold italic">Multiple files flagged for potential data exfiltration, XSS, and RCE vulnerabilities.</p>
                     </div>
                   </div>
-
                   {/* Verification Record Section */}
                   <div 
                     id="verification"
