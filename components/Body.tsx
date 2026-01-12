@@ -55,7 +55,7 @@ export default function SecurityDashboard({ data }: Props) {
               https://registry.npmjs.org/{pkg?.name}/-/{pkg?.name}-{version}.tgz
             </a></p>
             <p className="font-mono text-[11px] uppercase tracking-wider text-slate-400 pt-1">SHA256 <span className="text-slate-700 dark:text-slate-300 break-all font-sans normal-case tracking-normal ml-1 font-medium">{data?.insight?.sha || "5188d186e94a8d5470af6ed2725d209d8b2abc29cc7d6bedd58a748efd7e89f9"}</span></p>
-            <p className="font-mono text-[11px] uppercase tracking-wider text-slate-400">Confidence <span className="text-slate-700 dark:text-slate-300 break-all font-sans normal-case tracking-normal ml-1 font-medium italic">High (SafeDep Verified)</span></p>
+            <p className="font-mono text-[11px] uppercase tracking-wider text-slate-400">Confidence <span className="text-slate-700 dark:text-slate-300 break-all font-sans normal-case tracking-normal ml-1 font-medium">High (SafeDep Verified)</span></p>
           </div>
 
           {/* Stat Cards Grid - Responsive columns */}
