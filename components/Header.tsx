@@ -14,7 +14,7 @@ export default function Header() {
             text-slate-900 dark:text-white">
       {/* Changed flex-col to flex-row for better mobile space usage */}
       <div className="max-w-6xl mx-auto flex flex-row flex-wrap justify-between items-center p-4">
-        
+
         {/* -- LEFT: Logo Section -- */}
         <div
           className="flex flex-col items-start cursor-pointer group"
@@ -24,7 +24,7 @@ export default function Header() {
           <span className="text-[10px] md:text-xs text-slate-400 mb-0.5 tracking-wider group-hover:text-[#008f7a] transition-colors font-semibold">
             POWERED BY
           </span>
-          
+
           <div className="flex items-center gap-2">
             {/* FIX: Added 'w-8' base class so it shows on mobile. Removed 'relative' as it's often not needed for simple img tags unless using fill */}
             <div className="w-8 h-8 md:w-10 md:h-10 rounded overflow-hidden flex-shrink-0">
@@ -59,7 +59,7 @@ export default function Header() {
               Install
             </span>
           </button>
-          
+
           <ModeToggle />
         </div>
       </div>

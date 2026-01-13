@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { ShieldAlert, CheckCircle, Info, Github, List, Scale, ExternalLink } from "lucide-react";
+import { ShieldAlert, CheckCircle, Info, List, Scale, ExternalLink } from "lucide-react";
 import StatCard from "./StatCard";
 
 interface Props {
@@ -14,12 +14,12 @@ export default function SecurityDashboard({ data }: Props) {
   const pkg = data?.packageVersion?.package;
   const version = data?.packageVersion?.version;
   const insight = data?.insight;
-  
+
   const vulnerabilities = insight?.vulnerabilities || [];
   const scorecard = insight?.scorecard?.overallScore?.toFixed(1) || "9.5";
-  const licenseList = Array.isArray(insight?.licenses) 
-  ? insight.licenses 
-  : (insight?.licenses?.licenses || []);
+  const licenseList = Array.isArray(insight?.licenses)
+    ? insight.licenses
+    : (insight?.licenses?.licenses || []);
   const versionsList = data?.insight?.availableVersions || [];
   useEffect(() => {
     setMounted(true);
@@ -30,11 +30,11 @@ export default function SecurityDashboard({ data }: Props) {
         <header className="p-4 md:p-10 pb-6 dark:bg-slate-900">
           <div className="flex flex-col md:flex-row md:items-center mb-4 gap-3">
             <div className="border border-slate-200 dark:border-slate-700 py-1 rounded-lg bg-slate-50 dark:bg-slate-800 shadow-sm">
-              <img 
-                src="/githubsymbol.png" 
-                alt="GitHub" 
-                className="dark:invert brightness-0 opacity-90" 
-                width={42} 
+              <img
+                src="/githubsymbol.png"
+                alt="GitHub"
+                className="dark:invert brightness-0 opacity-90"
+                width={42}
               />
             </div>
             <h1 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white tracking-tight break-all">
@@ -42,37 +42,36 @@ export default function SecurityDashboard({ data }: Props) {
             </h1>
           </div>
           <div className="space-y-1.5 text-[12px] md:text-[13px] text-slate-500 dark:text-slate-400 mb-8 leading-relaxed">
-        <p>
+            <p>
               Analysed at{" "}
               <span className="text-slate-800 dark:text-slate-200">
                 {mounted ? new Date().toUTCString() : "Loading..."}
               </span>
-            </p>            <p className="tracking-tight">Source <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center gap-1 break-all font-medium">
+            </p><p className="tracking-tight">Source <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center gap-1 break-all font-medium">
               https://registry.npmjs.org/{pkg?.name}/-/{pkg?.name}-{version}.tgz
             </a></p>
             <p className="font-mono text-[11px] uppercase tracking-wider text-slate-400 pt-1">SHA256 <span className="text-slate-700 dark:text-slate-300 break-all font-sans normal-case tracking-normal ml-1 font-medium">{data?.insight?.sha || "5188d186e94a8d5470af6ed2725d209d8b2abc29cc7d6bedd58a748efd7e89f9"}</span></p>
             <p className="font-mono text-[11px] uppercase tracking-wider text-slate-400">Confidence <span className="text-slate-700 dark:text-slate-300 break-all font-sans normal-case tracking-normal ml-1 font-medium">High (SafeDep Verified)</span></p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
-            <StatCard label="Version" value={version} icon={<Info className="text-blue-500" size={18}/>} />
-            <StatCard label="Vulnerabilities" value={vulnerabilities.length} icon={<ShieldAlert className="text-red-500" size={18}/>} />
-            <StatCard label="OpenSSF Scorecard" value={`${scorecard}/10`} icon={<CheckCircle className="text-emerald-500" size={18}/>} color="text-emerald-600 dark:text-emerald-400 font-bold" />
-            <StatCard label="License" value={licenseList[0]?.licenseId || "Apache-2.0"} icon={<Scale className="text-blue-500" size={18}/>} />
-            <StatCard label="Ecosystem" value={pkg?.ecosystem?.split('_')[1] || "Go"} icon={<List className="text-emerald-500" size={18}/>} />
+            <StatCard label="Version" value={version} icon={<Info className="text-blue-500" size={18} />} />
+            <StatCard label="Vulnerabilities" value={vulnerabilities.length} icon={<ShieldAlert className="text-red-500" size={18} />} />
+            <StatCard label="OpenSSF Scorecard" value={`${scorecard}/10`} icon={<CheckCircle className="text-emerald-500" size={18} />} color="text-emerald-600 dark:text-emerald-400 font-bold" />
+            <StatCard label="License" value={licenseList[0]?.licenseId || "Apache-2.0"} icon={<Scale className="text-blue-500" size={18} />} />
+            <StatCard label="Ecosystem" value={pkg?.ecosystem?.split('_')[1] || "Go"} icon={<List className="text-emerald-500" size={18} />} />
           </div>
         </header>
 
         {/* Tab Navigation - Scrollable on mobile */}
         <nav className="flex bg-slate-50/50 border-y border-slate-200 px-4 md:px-6 pt-2 dark:bg-slate-800/50 dark:border-slate-800 overflow-x-auto no-scrollbar cursor-pointer">
           {['Overview', 'Vulnerabilities', 'Versions', 'License'].map((tab) => (
-            <button 
-              key={tab} 
+            <button
+              key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-4 md:px-8 py-3 text-[13px] md:text-[14px] font-bold uppercase tracking-[0.05em] transition-all rounded-t-lg border-x border-t -mb-[1px] whitespace-nowrap cursor-pointer ${
-                activeTab === tab 
-                ? 'bg-white border-slate-200 text-slate-900 dark:bg-slate-900 dark:border-slate-800 dark:text-white shadow-sm' 
+              className={`px-4 md:px-8 py-3 text-[13px] md:text-[14px] font-bold uppercase tracking-[0.05em] transition-all rounded-t-lg border-x border-t -mb-[1px] whitespace-nowrap cursor-pointer ${activeTab === tab
+                ? 'bg-white border-slate-200 text-slate-900 dark:bg-slate-900 dark:border-slate-800 dark:text-white shadow-sm'
                 : 'border-transparent text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300'
-              }`}
+                }`}
             >
               {tab}
             </button>
@@ -81,18 +80,17 @@ export default function SecurityDashboard({ data }: Props) {
 
         <main className="p-0 dark:bg-slate-900">
           <div id="scroll-box" className="h-[450px] md:h-[550px] overflow-y-auto no-scrollbar scroll-smooth">
-            
+
             {/* 1. OVERVIEW TAB */}
             {activeTab === "Overview" && (
               <div className="p-6 md:p-14 space-y-10 animate-in fade-in duration-500 flex flex-col items-center justify-center min-h-full w-full mx-auto">
                 <div className="max-w-4xl w-full space-y-10 md:space-y-14">
                   {/* Summary Section */}
-                  <div 
+                  <div
                     id="summary"
                     onMouseEnter={() => setActiveSection("summary")}
-                    className={`relative pl-6 md:pl-10 border-l-2 transition-all duration-500 ${
-                      activeSection === "summary" ? "border-emerald-500" : "border-slate-200 dark:border-slate-700"
-                    }`}
+                    className={`relative pl-6 md:pl-10 border-l-2 transition-all duration-500 ${activeSection === "summary" ? "border-emerald-500" : "border-slate-200 dark:border-slate-700"
+                      }`}
                   >
                     <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight text-left">Summary</h3>
                     <div className="space-y-4 text-[15px] md:text-[16px] leading-relaxed text-slate-600 dark:text-slate-400 text-left font-medium">
@@ -102,24 +100,22 @@ export default function SecurityDashboard({ data }: Props) {
                     </div>
                   </div>
                   {/* Verification Record Section */}
-                  <div 
+                  <div
                     id="verification"
                     onMouseEnter={() => setActiveSection("verification")}
-                    className={`relative pl-6 md:pl-10 border-l-2 transition-all duration-500 ${
-                      activeSection === "verification" ? "border-blue-400" : "border-slate-200 dark:border-slate-700"
-                    }`}
+                    className={`relative pl-6 md:pl-10 border-l-2 transition-all duration-500 ${activeSection === "verification" ? "border-blue-400" : "border-slate-200 dark:border-slate-700"
+                      }`}
                   >
                     <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight text-left">Verification Record</h3>
                     <p className="text-[15px] md:text-[16px] text-slate-600 dark:text-slate-400 text-left font-medium leading-relaxed">Manual analysis confirmed that the package is clean.</p>
                   </div>
 
                   {/* Details Section */}
-                  <div 
+                  <div
                     id="details"
                     onMouseEnter={() => setActiveSection("details")}
-                    className={`relative pl-6 md:pl-10 border-l-2 transition-all duration-500 ${
-                      activeSection === "details" ? "border-slate-500" : "border-slate-200 dark:border-slate-700"
-                    }`}
+                    className={`relative pl-6 md:pl-10 border-l-2 transition-all duration-500 ${activeSection === "details" ? "border-slate-500" : "border-slate-200 dark:border-slate-700"
+                      }`}
                   >
                     <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight text-left">Details</h3>
                     <div className="space-y-4 text-[15px] md:text-[16px] leading-relaxed text-slate-600 dark:text-slate-400 text-left font-medium">
@@ -159,8 +155,8 @@ export default function SecurityDashboard({ data }: Props) {
                           <td className="px-8 py-6 max-w-xs md:max-w-md leading-relaxed">{v.summary}</td>
                           <td className="px-8 py-6">
                             <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter border flex items-center w-fit gap-1.5 ${riskStyles[risk]}`}>
-                               <div className={`w-1.5 h-1.5 rounded-full ${risk === 'low' ? 'bg-cyan-400' : risk === 'high' ? 'bg-pink-400' : risk === 'medium' ? 'bg-orange-400' : risk === 'critical' ? 'bg-red-500' : 'bg-slate-300'}`} />
-                               {risk}
+                              <div className={`w-1.5 h-1.5 rounded-full ${risk === 'low' ? 'bg-cyan-400' : risk === 'high' ? 'bg-pink-400' : risk === 'medium' ? 'bg-orange-400' : risk === 'critical' ? 'bg-red-500' : 'bg-slate-300'}`} />
+                              {risk}
                             </span>
                           </td>
                           <td className="px-8 py-6 text-slate-500 dark:text-slate-500 font-mono text-xs">{new Date(v.publishedAt).toLocaleDateString('en-GB')}</td>
@@ -228,13 +224,13 @@ export default function SecurityDashboard({ data }: Props) {
                             <td className="px-10 py-6 font-bold text-slate-900 dark:text-white">{id}</td>
                             <td className="px-10 py-6 text-slate-600 dark:text-slate-400">{name}</td>
                             <td className="px-10 py-6">
-                              <a 
-                                href={url} 
-                                target="_blank" 
+                              <a
+                                href={url}
+                                target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center gap-1.5 font-bold text-xs uppercase tracking-wider"
                               >
-                                View Specs <ExternalLink size={12}/>
+                                View Specs <ExternalLink size={12} />
                               </a>
                             </td>
                           </tr>

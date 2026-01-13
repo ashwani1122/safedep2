@@ -24,8 +24,6 @@ const client = createClient(InsightService, transport);
  */
 export async function getPackageInsight(ecosystem: string, name: string, version: string) {
   try {
-    // Convert string input (e.g., "NPM") to the Enum value required by the Proto
-    // We handle the case-insensitive mapping here
     const ecoKey = ecosystem.toUpperCase() as keyof typeof Ecosystem;
     const selectedEcosystem = Ecosystem[ecoKey] ?? Ecosystem.UNSPECIFIED;
 

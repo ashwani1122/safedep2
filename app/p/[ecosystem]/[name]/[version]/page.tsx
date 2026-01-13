@@ -10,7 +10,6 @@ export default async function InsightPage({
   const resolvedParams = await params;
   const { ecosystem, name, version } = resolvedParams;
 
-  // 1. Fetch data on the server
   const { data, error } = await getPackageInsight(ecosystem, name, version);
   
   if (error) {
@@ -23,7 +22,5 @@ export default async function InsightPage({
       </div>
     );
   }
-
-  // 2. Pass real data to your Client Component
   return <SecurityDashboard data={data} />;
 }
