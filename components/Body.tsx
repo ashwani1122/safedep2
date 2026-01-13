@@ -21,9 +21,11 @@ export default function SecurityDashboard({ data }: Props) {
     ? insight.licenses
     : (insight?.licenses?.licenses || []);
   const versionsList = data?.insight?.availableVersions || [];
+
   useEffect(() => {
     setMounted(true);
   }, []);
+
   return (
     <div className="min-h-screen text-slate-900 bg-slate-50 p-4 md:p-8 font-sans dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300">
       <div className="max-w-6xl mx-auto bg-white rounded border border-slate-200 overflow-hidden dark:bg-slate-900 dark:border-slate-800">
@@ -47,9 +49,11 @@ export default function SecurityDashboard({ data }: Props) {
               <span className="text-slate-800 dark:text-slate-200">
                 {mounted ? new Date().toUTCString() : "Loading..."}
               </span>
-            </p><p className="tracking-tight">Source <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center gap-1 break-all font-medium">
+            </p>
+            <p className="tracking-tight">Source <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center gap-1 break-all font-medium">
               https://registry.npmjs.org/{pkg?.name}/-/{pkg?.name}-{version}.tgz
-            </a></p>
+            </a>
+            </p>
             <p className="font-mono text-[11px] uppercase tracking-wider text-slate-400 pt-1">SHA256 <span className="text-slate-700 dark:text-slate-300 break-all font-sans normal-case tracking-normal ml-1 font-medium">{data?.insight?.sha || "5188d186e94a8d5470af6ed2725d209d8b2abc29cc7d6bedd58a748efd7e89f9"}</span></p>
             <p className="font-mono text-[11px] uppercase tracking-wider text-slate-400">Confidence <span className="text-slate-700 dark:text-slate-300 break-all font-sans normal-case tracking-normal ml-1 font-medium">High (SafeDep Verified)</span></p>
           </div>
@@ -62,7 +66,6 @@ export default function SecurityDashboard({ data }: Props) {
           </div>
         </header>
 
-        {/* Tab Navigation - Scrollable on mobile */}
         <nav className="flex bg-slate-50/50 border-y border-slate-200 px-4 md:px-6 pt-2 dark:bg-slate-800/50 dark:border-slate-800 overflow-x-auto no-scrollbar cursor-pointer">
           {['Overview', 'Vulnerabilities', 'Versions', 'License'].map((tab) => (
             <button
