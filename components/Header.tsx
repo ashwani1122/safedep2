@@ -27,16 +27,6 @@ export default function Header() {
           </span>
 
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 md:w-9 md:h-9 rounded overflow-hidden flex-shrink-0">
-               {/* Note: If you want to use the Box icon like the dashboard, replace this Image with:
-                 <div className="w-full h-full bg-emerald-500 rounded-sm flex items-center justify-center text-white"><Box size={20} strokeWidth={3} /></div>
-               */}
-              <img
-                src="/115209633.png"
-                alt="SafeDep Logo"
-                className="w-full h-full object-contain dark:invert opacity-90 group-hover:scale-105 transition-transform"
-              />
-            </div>
             <span className="text-xl md:text-2xl font-bold font-sans text-slate-700 dark:text-white tracking-tight">
               SafeDep
             </span>
